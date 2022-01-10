@@ -16,7 +16,9 @@ data = pd.read_csv('yellow_tripdata_2019-04.csv')
 data.head()
 
 
-""" Leo el fichero con pandas y los almaceno en un dataframe llamado data_1, los datos selecionados son "taxi+_zone_lookup"."""
+""" Leo el fichero con pandas y los almaceno en un dataframe llamado ("data_1"), los datos selecionados son "taxi+_zone_lookup".
+Este CSV, aporta los datos de: ("Borough", "Zone" y "sevice_zone"), dependiendo de ("PULocationID" y "DOLocationID")
+del dataframe original ("data")"""
 
 data_1 = pd.read_csv('taxi+_zone_lookup.csv')
 data_1.head()
@@ -55,8 +57,9 @@ df = data_merged.drop(['VendorID', 'tpep_pickup_datetime', 'tpep_dropoff_datetim
 df.head()
 
 
-"""Calculamos los viajes que superan el percentil 0.95 en distancia de viaje ("trip_distance"). Para ello, primero calculamos
-el valor de dicho percentil ("p95"), para posteriormente eliminar todos los registros ó filas que estén por debajo de esta cifra."""
+""" Calculamos los viajes que superan el percentil 0.95 en distancia de viaje ("trip_distance"). Para ello, primero calculamos
+el valor de dicho percentil (p95), para posteriormente eliminar todos los registros ó filas que estén por debajo de la cifra
+calculada."""
 
 p95 = df["trip_distance"].quantile(0.95)
 p95
